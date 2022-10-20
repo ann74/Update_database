@@ -6,4 +6,5 @@ SELECT p.product_name, p.units_on_order, s.contact, s.phone
 JOIN suppliers s on s.id = p.supplier_id
     JOIN categories c on c.category_id = p.category_id
 WHERE p.units_on_order < 20 AND
-      c.category_name in ('Beverages', 'Seafood');
+      c.category_name in ('Beverages', 'Seafood') AND
+      p.discontinued = 0;

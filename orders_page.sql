@@ -5,10 +5,10 @@ ORDER BY required_date DESC, shipped_date;
 
 -- Найти среднее значение дней уходящих на доставку с даты формирования заказа в USA
 
-SELECT c.country, avg(ord.required_date - ord.order_date) as avg_shipping_days
-    FROM orders ord JOIN customers c on c.customer_id = ord.customer_id
-WHERE c.country = 'USA'
-GROUP BY c.country;
+SELECT ship_country, avg(required_date - order_date) as avg_shipping_days
+    FROM orders
+WHERE ship_country = 'USA'
+GROUP BY ship_country;
 
 -- Найти сумму, на которую имеется товаров (количество * цену) причём таких, которые не сняты с продажи
 -- (см. на поле discontinued)
